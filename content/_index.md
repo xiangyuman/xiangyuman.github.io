@@ -1,4 +1,5 @@
 ---
+# /content下直接的_index.md文件：在主页面上显示的内容。
 # Leave the homepage title empty to use the site title
 title: ""
 date: 2022-10-24
@@ -30,22 +31,22 @@ sections:
           size: cover
           position: center
           parallax: false
-  - block: markdown
-    content:
-      title: '📚 My Research'
-      subtitle: ''
-      text: |-
-        Use this area to speak to your mission. I'm a research scientist in the Moonshot team at DeepMind. I blog about machine learning, deep learning, and moonshots.
+  # - block: markdown
+  #   content:
+  #     title: '📚 My Research'
+  #     subtitle: ''
+  #     text: |-
+  #       Use this area to speak to your mission. I'm a research scientist in the Moonshot team at DeepMind. I blog about machine learning, deep learning, and moonshots.
 
-        I apply a range of qualitative and quantitative methods to comprehensively investigate the role of science and technology in the economy.
+  #       I apply a range of qualitative and quantitative methods to comprehensively investigate the role of science and technology in the economy.
         
-        Please reach out to collaborate 😃
-    design:
-      columns: '1'
+  #       Please reach out to collaborate 😃
+  #   design:
+  #     columns: '1'
   - block: collection
-    id: papers
+    id: featured-publication  #标识符，与menus.yaml中url/#对应
     content:
-      title: Featured Publications
+      title: Featured Publication
       filters:
         folders:
           - publication
@@ -54,13 +55,25 @@ sections:
       view: article-grid
       columns: 2
   - block: collection
+    id: publication
     content:
-      title: Recent Publications
+      title: Publication
       text: ""
       filters:
         folders:
           - publication
-        exclude_featured: false
+        exclude_featured: false #是否显示featured publication中显示过的
+    design:
+      view: citation
+  - block: collection
+    id: working-paper
+    content:
+      title: Working Paper
+      text: ""
+      filters:
+        folders:
+          - working-paper
+        exclude_featured: false #是否显示featured publication中显示过的
     design:
       view: citation
   - block: collection

@@ -7,30 +7,30 @@ main:
   - name: Bio
     url: /
     weight: 10
-  - name: Publication
-    url: /
-    weight: 15
-  - name: Papers
-    url: /#papers
+  - name: Featured Publication
+    url: /#featured-publication #与/content下_index.md中设定的表示符对应
     weight: 20
-  - name: Working Papers
-    url: /
+  - name: Publication
+    url: /#publication
     weight: 25
+  - name: Working Paper
+    url: /#working-paper
+    weight: 28
   - name: Talks
     url: /#talks
-    weight: 30
+    weight: 40
   - name: Lecture
     url: /
-    weight: 35
+    weight: 45
   - name: News
     url: /#news
-    weight: 40
+    weight: 50
   - name: Experience
     url: experience/
-    weight: 50
+    weight: 60
   - name: Projects
     url: projects/
-    weight: 60
+    weight: 70
   - name: Teaching
     url: teaching/
-    weight: 70
+    weight: 80

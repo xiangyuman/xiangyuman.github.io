@@ -99,7 +99,6 @@
       "bio-text",
       "block",
       "blox-collection",
-      "blox-markdown",
       "blox-resume-awards",
       "blox-resume-biography-3",
       "blox-resume-experience",
@@ -580,7 +579,7 @@
       "TableOfContents",
       "about-me",
       "callouts",
-      "chart-429836715",
+      "chart-268591734",
       "charts",
       "code",
       "crowd-funded-open-source-software",
@@ -588,6 +587,7 @@
       "diagrams",
       "did-you-find-this-page-helpful-consider-sharing-it-",
       "ecosystem",
+      "featured-publication",
       "features",
       "get-started",
       "hide-button",
@@ -604,13 +604,12 @@
       "news",
       "overview",
       "page-bg",
-      "papers",
       "podcast",
       "profile",
+      "publication",
       "search",
       "search_toggle",
       "section-collection",
-      "section-markdown",
       "section-resume-awards",
       "section-resume-biography-3",
       "section-resume-experience",
@@ -632,7 +631,8 @@
       "themes",
       "todo-lists",
       "top",
-      "video"
+      "video",
+      "working-paper"
     ]
   }
 }
