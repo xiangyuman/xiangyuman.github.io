@@ -10,12 +10,12 @@ main:
   - name: Featured Publication
     url: /#featured-publication #与/content下_index.md中设定的表示符对应
     weight: 20
-  - name: Publication
-    url: /#publication
-    weight: 25
   - name: Working Paper
     url: /#working-paper
-    weight: 28
+    weight: 25
+  - name: Publication
+    url: /#publication
+    weight: 30
   - name: Talks
     url: /#talks
     weight: 40
