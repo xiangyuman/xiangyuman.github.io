@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Working Paper | CleverEgg</title>
+    <link>https://example.com/working-paper/</link>
+      <atom:link href="https://example.com/working-paper/index.xml" rel="self" type="application/rss+xml" />
+    <description>Working Paper</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://example.com/media/icon_hu7729264130191091259.png</url>
+      <title>Working Paper</title>
+      <link>https://example.com/working-paper/</link>
+    </image>
+    
+    <item>
+      <title>债务期限结构、货币政策传导与企业投资</title>
+      <link>https://example.com/working-paper/debtmaturity-mp-invest/</link>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://example.com/working-paper/debtmaturity-mp-invest/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

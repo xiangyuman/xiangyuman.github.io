@@ -2,12 +2,12 @@
 # /content下直接的_index.md文件：在主页面上显示的内容，没有的相应的block，即使menus中有也不在主页上显示，但点击会跳转。如模板中的project和teaching
 # Leave the homepage title empty to use the site title
 title: ""
-date: 2022-10-24
+date: 2025-04-05
 type: landing
 
 design:
   # Default section spacing
-  spacing: "6rem"
+  spacing: "3rem"
 
 sections:
   - block: resume-biography-3
@@ -18,7 +18,7 @@ sections:
       # Show a call-to-action button under your biography? (optional)
       button:
         text: Download CV
-        url: uploads/resume.pdf
+        #url: uploads/resume.pdf
     design:
       css_class: dark
       background:
@@ -27,7 +27,7 @@ sections:
           # Add your image background to `assets/media/`.
           filename: stacked-peaks.svg
           filters:
-            brightness: 1.0
+            brightness: 0.7
           size: cover
           position: center
           parallax: false
@@ -44,11 +44,12 @@ sections:
   #   design:
   #     columns: '1'
   - block: collection
-    id: featured-publication  #标识符，与menus.yaml中url/#对应
+    id: featured-article  #标识符，与menus.yaml中url/#对应
     content:
-      title: Featured Publication
+      title: Featured Article
       filters:
         folders:
+          - working-paper
           - publication
         featured_only: true
     design:
@@ -57,7 +58,7 @@ sections:
   - block: collection
     id: working-paper
     content:
-      title: Working Paper
+      title: Working Paper  #显示在主页面内容里的title，和menus中的name不一样
       text: ""
       filters:
         folders:
@@ -76,28 +77,30 @@ sections:
         exclude_featured: false #是否不显示featured publication中显示过的
     design:
       view: citation
+  # - block: collection
+  #   id: talks
+  #   content:
+  #     title: Recent & Upcoming Talks
+  #     filters:
+  #       folders:
+  #         - event
+  #   design:
+  #     view: article-grid
+  #     columns: 1
   - block: collection
-    id: talks
+    id: lecture
     content:
-      title: Recent & Upcoming Talks
-      filters:
-        folders:
-          - event
-    design:
-      view: article-grid
-      columns: 1
-  - block: collection
-    id: news
-    content:
-      title: Recent News
+      title: Lecture
       subtitle: ''
       text: ''
       # Page type to display. E.g. post, talk, publication...
-      page_type: post
+      page_type: post-lec
       # Choose how many pages you would like to display (0 = all pages)
       count: 5
       # Filter on criteria
       filters:
+        folders:
+          - post-lec
         author: ""
         category: ""
         tag: ""
@@ -115,6 +118,35 @@ sections:
       # Reduce spacing
       spacing:
         padding: [0, 0, 0, 0]
+  # - block: collection
+  #   id: news
+  #   content:
+  #     title: Recent News
+  #     subtitle: ''
+  #     text: ''
+  #     # Page type to display. E.g. post, talk, publication...
+  #     page_type: post
+  #     # Choose how many pages you would like to display (0 = all pages)
+  #     count: 5
+  #     # Filter on criteria
+  #     filters:
+  #       author: ""
+  #       category: ""
+  #       tag: ""
+  #       exclude_featured: false
+  #       exclude_future: false
+  #       exclude_past: false
+  #       publication_type: ""
+  #     # Choose how many pages you would like to offset by
+  #     offset: 0
+  #     # Page order: descending (desc) or ascending (asc) date.
+  #     order: desc
+  #   design:
+  #     # Choose a layout view
+  #     view: date-title-summary
+  #     # Reduce spacing
+  #     spacing:
+  #       padding: [0, 0, 0, 0]
   # - block: cta-card
   #   demo: true # Only display this section in the Hugo Blox Builder demo site
   #   content:
