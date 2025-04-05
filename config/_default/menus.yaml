@@ -8,7 +8,7 @@ main:
     url: /
     weight: 10
   # - name: Featured Publication
-  #   url: /#featured-publication #与/content下_index.md中设定的表示符对应
+  #   url: /#featured-publication #与/content下直接_index.md中设定的表示符对应
   #   weight: 20
   - name: Working Paper
     url: /#working-paper
@@ -16,7 +16,7 @@ main:
   - name: Publication
     url: /#publication
     weight: 30
-  - name: Talks
+  - name: Talks # event文件下
     url: /#talks
     weight: 40
   - name: Lecture
@@ -25,12 +25,12 @@ main:
   - name: News
     url: /#news
     weight: 50
-  - name: Experience
-    url: experience/
-    weight: 60
-  - name: Projects
-    url: projects/
-    weight: 70
+  # - name: Experience
+  #   url: experience/  #experience文件
+  #   weight: 60
+  # - name: Projects
+  #   url: projects/  #projects文件。因为content下的_index.md文件中block内容没有project，所以主页面不显示，而是链接跳转。
+  #   weight: 70
   - name: Teaching
-    url: teaching/
+    url: teaching/  #/content/teaching下的_index.md文件，
     weight: 80
