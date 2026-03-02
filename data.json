@@ -13,8 +13,8 @@
     "email": "xiangyuman@ruc.edu.cn",
     "photo": "assets/photo.jpg",
     "cv": "assets/cv.pdf",
-    "bio_en": "I am a PhD candidate in Economics at the School of Economics, Renmin University of China. My research focuses on macroeconomics.\n\nI received my B.S. in Statistics from the School of Statistics, University of International Business and Economics (UIBE).",
-    "bio_zh": "我是中国人民大学经济学院经济学博士候选人，研究方向为宏观经济学。\n\n本科毕业于对外经济贸易大学统计学院，获统计学学士学位。",
+    "bio_en": "I am a PhD candidate in Economics at the School of Economics, Renmin University of China. My research focuses on macroeconomics.\n\nI received my B.S. in Economics from the School of Statistics, University of International Business and Economics (UIBE).",
+    "bio_zh": "我是中国人民大学经济学院经济学博士候选人，研究方向为宏观经济学。\n\n本科毕业于对外经济贸易大学统计学院，获经济学学士学位。",
     "fields": ["Macroeconomics"],
     "links": {
       "google_scholar": "",
