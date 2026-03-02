@@ -1,0 +1,104 @@
+{
+  "_说明": "修改此文件更新网站内容。添加论文：在 papers 数组中复制一个条目并修改。添加讲义：在对应课程的 notes 数组中添加条目。status 字段可选值：job_market_paper / working_paper / revise_resubmit / forthcoming / published",
+
+  "profile": {
+    "name_en": "Jane Smith",
+    "name_zh": "张三",
+    "title_en": "PhD Candidate in Economics",
+    "title_zh": "经济学博士候选人",
+    "institution_en": "Peking University",
+    "institution_zh": "北京大学",
+    "department_en": "School of Economics",
+    "department_zh": "经济学院",
+    "email": "example@pku.edu.cn",
+    "photo": "assets/photo.jpg",
+    "cv": "assets/cv.pdf",
+    "bio_en": "I am a PhD candidate in Economics at Peking University, expected to graduate in 2026. My research interests lie at the intersection of international trade and industrial organization, with a focus on how trade policy shapes firm dynamics and market structure in developing economies.\n\nBefore my PhD, I received a B.A. in Economics from Renmin University of China.",
+    "bio_zh": "我是北京大学经济学院的博士候选人，预计于2026年毕业。我的研究兴趣集中于国际贸易与产业组织的交叉领域，重点研究贸易政策如何影响发展中经济体中的企业动态与市场结构。\n\n在攻读博士学位之前，我在中国人民大学获得经济学学士学位。",
+    "fields": ["International Trade", "Industrial Organization", "China Economy"],
+    "links": {
+      "google_scholar": "",
+      "ssrn": "",
+      "twitter": ""
+    }
+  },
+
+  "papers": [
+    {
+      "title": "Trade Liberalization and Firm Heterogeneity: Evidence from China",
+      "year": "2024",
+      "status": "job_market_paper",
+      "coauthors": [],
+      "abstract_en": "This paper examines how trade liberalization affects the distribution of firm productivity in China. Using a difference-in-differences design exploiting variation in tariff reductions across industries, I find that lower input tariffs increase average firm productivity by 8%, driven by both within-firm improvements and reallocation of resources toward more productive firms. The effects are concentrated among exporters and are stronger in industries with higher initial trade barriers.",
+      "abstract_zh": "本文研究贸易自由化对中国企业生产率分布的影响。利用不同行业关税削减的差异构建双重差分设计，我发现较低的中间品进口关税使企业平均生产率提高了8%，这一效应由企业内部改善与资源向更高效企业重新配置共同驱动。该效应主要集中于出口企业，并在初始贸易壁垒较高的行业中更为显著。",
+      "pdf": "papers/jmp_tradeliberalization.pdf",
+      "journal": "",
+      "doi": ""
+    },
+    {
+      "title": "Market Structure and Innovation under Import Competition",
+      "year": "2023",
+      "status": "working_paper",
+      "coauthors": ["John Doe (Harvard University)", "Li Wei (Tsinghua University)"],
+      "abstract_en": "We study the effect of import competition on domestic firms' innovation incentives. Using Chinese patent data matched with firm-level production data from 2000 to 2015, we find that increased import competition from low-wage countries reduces innovation among incumbents, but stimulates entry by innovative startups. The net effect on aggregate innovation is positive in high-tech industries and negative in low-tech industries.",
+      "abstract_zh": "本文研究进口竞争对国内企业创新激励的影响。利用2000年至2015年与企业级生产数据相匹配的中国专利数据，我们发现来自低工资国家进口竞争的加剧降低了在位企业的创新投入，但刺激了创新型初创企业的进入。在高技术行业，进口竞争对整体创新的净效应为正；在低技术行业则为负。",
+      "pdf": "",
+      "journal": "",
+      "doi": ""
+    },
+    {
+      "title": "Export Dynamics and Learning-by-Exporting: A Structural Approach",
+      "year": "2022",
+      "status": "revise_resubmit",
+      "coauthors": ["Maria Garcia (LSE)"],
+      "abstract_en": "We develop and estimate a dynamic model of export market participation that allows for learning-by-exporting. The model features heterogeneous firms with endogenous productivity accumulation through export experience. We estimate the model using Chinese customs data and find significant learning effects: conditional on survival, a firm's productivity grows 5.2% faster in each year of export market participation. Counterfactual analysis suggests that export subsidies yield higher welfare gains than previously estimated once learning effects are accounted for.",
+      "abstract_zh": "我们构建并估计一个允许出口学习效应的出口市场参与动态模型。该模型涵盖通过出口经验内生积累生产率的异质企业。利用中国海关数据对模型进行估计，我们发现了显著的学习效应：在存活的条件下，企业生产率在每一年的出口市场参与中额外增长5.2%。反事实分析表明，考虑学习效应后，出口补贴所产生的福利收益高于此前估算。",
+      "pdf": "papers/export_dynamics_2022.pdf",
+      "journal": "Journal of International Economics",
+      "doi": ""
+    }
+  ],
+
+  "lecture_notes": [
+    {
+      "course_en": "ECON 501: Graduate Microeconomics",
+      "course_zh": "经济学501：研究生微观经济学",
+      "role_en": "Teaching Assistant",
+      "role_zh": "助教",
+      "institution": "Peking University",
+      "term": "Fall 2024",
+      "notes": [
+        {
+          "title_en": "Week 1: Consumer Theory and Utility Maximization",
+          "title_zh": "第一周：消费者理论与效用最大化",
+          "pdf": "lectures/micro501_week1.pdf"
+        },
+        {
+          "title_en": "Week 2: Duality Theory — Expenditure and Indirect Utility",
+          "title_zh": "第二周：对偶理论——支出函数与间接效用函数",
+          "pdf": "lectures/micro501_week2.pdf"
+        },
+        {
+          "title_en": "Week 3: Producer Theory",
+          "title_zh": "第三周：生产者理论",
+          "pdf": "lectures/micro501_week3.pdf"
+        }
+      ]
+    },
+    {
+      "course_en": "ECON 301: Intermediate Microeconomics",
+      "course_zh": "经济学301：中级微观经济学",
+      "role_en": "Teaching Assistant",
+      "role_zh": "助教",
+      "institution": "Peking University",
+      "term": "Spring 2024",
+      "notes": [
+        {
+          "title_en": "Week 4: Game Theory and Nash Equilibrium",
+          "title_zh": "第四周：博弈论与纳什均衡",
+          "pdf": "lectures/econ301_week4.pdf"
+        }
+      ]
+    }
+  ]
+}
