@@ -194,14 +194,31 @@
       return;
     }
 
-    // Sort by year descending
-    var sorted = papers.slice().sort(function (a, b) {
+    var workingStatuses = ['job_market_paper', 'working_paper', 'revise_resubmit', 'forthcoming'];
+    var sortFn = function (a, b) {
       return (parseInt(b.year) || 0) - (parseInt(a.year) || 0);
-    });
+    };
 
-    sorted.forEach(function (paper, idx) {
-      container.appendChild(buildPaperEl(paper, idx));
-    });
+    var workingPapers  = papers.filter(function (p) { return workingStatuses.indexOf(p.status) !== -1; }).sort(sortFn);
+    var publishedPapers = papers.filter(function (p) { return workingStatuses.indexOf(p.status) === -1; }).sort(sortFn);
+
+    var idx = 0;
+    function renderGroup(groupPapers, labelEn, labelZh) {
+      if (!groupPapers.length) return;
+      var heading = document.createElement('h3');
+      heading.className = 'papers-subheading';
+      heading.setAttribute('data-en', labelEn);
+      heading.setAttribute('data-zh', labelZh);
+      heading.textContent = labelEn;
+      container.appendChild(heading);
+      groupPapers.forEach(function (paper) {
+        container.appendChild(buildPaperEl(paper, idx));
+        idx++;
+      });
+    }
+
+    renderGroup(workingPapers,   'Working Papers', '工作论文');
+    renderGroup(publishedPapers, 'Published',      '已发表');
   }
 
   function buildPaperEl(paper, idx) {
@@ -454,7 +471,7 @@
       // Don't overwrite nav links that have no text set yet (they use data attrs)
       if (el.tagName === 'A' && el.classList.contains('nav-link')) {
         el.textContent = text;
-      } else if (el.tagName === 'SPAN' || el.tagName === 'P' || el.tagName === 'DIV' || el.tagName === 'H1' || el.tagName === 'H2') {
+      } else if (el.tagName === 'SPAN' || el.tagName === 'P' || el.tagName === 'DIV' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3') {
         // Only set textContent for leaf-like elements or known text containers
         if (!el.children.length || el.classList.contains('fields-label')) {
           el.textContent = text;
