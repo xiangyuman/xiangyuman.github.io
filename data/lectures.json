@@ -1,0 +1,34 @@
+[
+  {
+    "course_en": "Macroeconomics (Graduate)",
+    "course_zh": "宏观经济学（研究生）",
+    "role_en": "Teaching Assistant",
+    "role_zh": "助教",
+    "institution": "Renmin University of China",
+    "term": "Fall 2024",
+    "notes": [
+      {
+        "title_en": "Week 1: Solow Growth Model",
+        "title_zh": "第一周：索洛增长模型",
+        "files": [
+          { "label_en": "PDF", "label_zh": "PDF", "url": "lectures/macro_grad_week1.pdf" },
+          { "label_en": "Data (Excel)", "label_zh": "数据（Excel）", "url": "lectures/macro_grad_week1_data.xlsx" }
+        ]
+      },
+      {
+        "title_en": "Week 2: Ramsey–Cass–Koopmans Model",
+        "title_zh": "第二周：拉姆齐–卡斯–库普曼斯模型",
+        "files": [
+          { "label_en": "PDF", "label_zh": "PDF", "url": "lectures/macro_grad_week2.pdf" }
+        ]
+      },
+      {
+        "title_en": "Week 3: Real Business Cycle Theory",
+        "title_zh": "第三周：真实商业周期理论",
+        "files": [
+          { "label_en": "PDF", "label_zh": "PDF", "url": "lectures/macro_grad_week3.pdf" }
+        ]
+      }
+    ]
+  }
+]
