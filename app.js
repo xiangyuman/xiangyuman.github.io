@@ -22,22 +22,41 @@
 
   // ── Data loading ───────────────────────────────────────
   function fetchData() {
-    fetch('data.json')
-      .then(function (res) {
-        if (!res.ok) throw new Error('HTTP ' + res.status + ': ' + res.statusText);
-        return res.json();
+    Promise.all([
+      fetch('data/profile.json').then(function (r) {
+        if (!r.ok) throw new Error('profile.json: HTTP ' + r.status);
+        return r.json();
+      }),
+      fetch('data/papers.json').then(function (r) {
+        if (!r.ok) throw new Error('papers.json: HTTP ' + r.status);
+        return r.json();
+      }),
+      fetch('data/lectures.json').then(function (r) {
+        if (!r.ok) throw new Error('lectures.json: HTTP ' + r.status);
+        return r.json();
       })
-      .then(function (data) {
-        siteData = data;
-        hideLoading();
+    ])
+    .then(function (results) {
+      var data = {
+        profile:       results[0],
+        papers:        results[1],
+        lecture_notes: results[2]
+      };
+      siteData = data;
+      try {
         renderAll(data);
+      } catch (err) {
+        showError('Render error: ' + err.message);
+      } finally {
+        hideLoading();
         showSections();
         applyLang(currentLang);
-      })
-      .catch(function (err) {
-        hideLoading();
-        showError(err.message);
-      });
+      }
+    })
+    .catch(function (err) {
+      hideLoading();
+      showError(err.message);
+    });
   }
 
   function hideLoading() {
@@ -305,6 +324,23 @@
       actions.appendChild(pdfLink);
     }
 
+    // Replication file link
+    if (paper.replication) {
+      var replLink = document.createElement('a');
+      replLink.href = paper.replication;
+      replLink.className = 'pdf-link';
+      replLink.target = '_blank';
+      replLink.rel = 'noopener noreferrer';
+      replLink.innerHTML =
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H2Z"/><path fill-rule="evenodd" d="M2 7.5h16l-.811 7.71a2 2 0 0 1-1.99 1.79H4.802a2 2 0 0 1-1.99-1.79L2 7.5ZM7 11a1 1 0 0 1 1-1h4a1 1 0 0 1 0 2H8a1 1 0 0 1-1-1Z" clip-rule="evenodd"/></svg>';
+      var replSpan = document.createElement('span');
+      replSpan.setAttribute('data-en', 'Replication');
+      replSpan.setAttribute('data-zh', '复现文件');
+      replSpan.textContent = 'Replication';
+      replLink.appendChild(replSpan);
+      actions.appendChild(replLink);
+    }
+
     // DOI link
     if (paper.doi) {
       var doiLink = document.createElement('a');
@@ -433,19 +469,38 @@
     titleEl.textContent = note.title_en || '';
     li.appendChild(titleEl);
 
-    if (note.pdf) {
+    // Support new "files" array; fall back to legacy "pdf" string field
+    var files = note.files || [];
+    if (!files.length && note.pdf) {
+      files = [{ label_en: 'PDF', label_zh: 'PDF', url: note.pdf }];
+    }
+
+    files.forEach(function (file) {
+      if (!file.url) return;
       var a = document.createElement('a');
-      a.href = note.pdf;
+      a.href = file.url;
       a.className = 'note-pdf-link';
       a.target = '_blank';
       a.rel = 'noopener noreferrer';
-      a.innerHTML =
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 4a2 2 0 0 1 2-2h4.586A2 2 0 0 1 12 2.586L15.414 6A2 2 0 0 1 16 7.414V16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4Z" clip-rule="evenodd"/></svg>' +
-        'PDF';
+      a.innerHTML = getNoteFileIcon(file.url);
+      var labelSpan = document.createElement('span');
+      labelSpan.setAttribute('data-en', file.label_en || 'File');
+      labelSpan.setAttribute('data-zh', file.label_zh || file.label_en || 'File');
+      labelSpan.textContent = file.label_en || 'File';
+      a.appendChild(labelSpan);
       li.appendChild(a);
-    }
+    });
 
     return li;
+  }
+
+  function getNoteFileIcon(url) {
+    var ext = (url || '').split('.').pop().toLowerCase().split('?')[0];
+    if (ext === 'pdf') {
+      return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 4a2 2 0 0 1 2-2h4.586A2 2 0 0 1 12 2.586L15.414 6A2 2 0 0 1 16 7.414V16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4Z" clip-rule="evenodd"/></svg>';
+    }
+    // Download icon for other file types (Excel, ZIP, etc.)
+    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10.75 2.75a.75.75 0 0 0-1.5 0v8.614L6.295 8.235a.75.75 0 1 0-1.09 1.03l4.25 4.5a.75.75 0 0 0 1.09 0l4.25-4.5a.75.75 0 0 0-1.09-1.03l-2.955 3.129V2.75Z"/><path d="M3.5 12.75a.75.75 0 0 0-1.5 0v2.5A2.75 2.75 0 0 0 4.75 18h10.5A2.75 2.75 0 0 0 18 15.25v-2.5a.75.75 0 0 0-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5Z"/></svg>';
   }
 
   // ── Language toggle ────────────────────────────────────
